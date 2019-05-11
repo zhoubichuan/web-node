@@ -1,3 +1,3 @@
-# Headline
+# Ionic学习相关笔记
 
-> An awesome project.
+> 从零开始学习Ionic，记录成长过程---加油!!!
