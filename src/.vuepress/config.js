@@ -273,10 +273,10 @@ module.exports = {
             '2.dataDriven',
             '3.componentization',
             '4.deepResponsePrinciple',
-            '5.compile',
-            '6.extend',
-            '7.vueRouter',
-            '8.vuex'
+            // '5.compile',
+            // '6.extend',
+            // '7.vueRouter',
+            // '8.vuex'
           ],
           '/senior/element/': [
             'Pagination',
