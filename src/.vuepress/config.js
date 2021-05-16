@@ -104,27 +104,27 @@ module.exports = {
             text: '基础知识',
             items: [{
                 text: '一、堆栈内存和闭包作用域',
-                link: '/basicKnowledge/stack/1.dataType'
+                link: '/base/stack/1.dataType'
               },
               {
                 text: '二、面向对象程序设计',
-                link: '/basicKnowledge/oop/1.objectOriented'
+                link: '/base/oop/1.objectOriented'
               },
               {
                 text: '三、浏览器渲染机制',
-                link: '/basicKnowledge/3.browser/1.browser'
+                link: '/base/3.browser/1.browser'
               },
               {
                 text: '四、DOM事件及设计模式',
-                link: '/basicKnowledge/dom/1.event'
+                link: '/base/dom/1.event'
               },
               {
                 text: '五、ES6+核心源码分析',
-                link: '/basicKnowledge/es6/1.let'
+                link: '/base/es6/1.let'
               },
               {
                 text: '六、AJAX/HTTP数据通信',
-                link: '/basicKnowledge/http/1.http'
+                link: '/base/http/1.http'
               }
             ]
           },
@@ -132,27 +132,27 @@ module.exports = {
             text: '专项知识',
             items: [{
                 text: '一、前端性能优化',
-                link: '/specialKnowledge/performance/1.CDN'
+                link: '/senior/performance/1.CDN'
               },
               {
                 text: '二、TypeScript',
-                link: '/specialKnowledge/typeScript/15.api'
+                link: '/senior/typeScript/15.api'
               },
               {
                 text: '三、前端监控',
-                link: '/specialKnowledge/monitor/13.jiankong'
+                link: '/senior/monitor/13.jiankong'
               },
               {
                 text: '四、安全防范',
-                link: '/specialKnowledge/security/1.xss'
+                link: '/senior/security/1.xss'
               },
               {
                 text: '五、文件上传下载',
-                link: '/specialKnowledge/security/1.xss'
+                link: '/senior/security/1.xss'
               },
               {
                 text: '六、移动端开发',
-                link: '/specialKnowledge/h5/skill',
+                link: '/senior/h5/skill',
               }
             ]
           },
@@ -160,25 +160,25 @@ module.exports = {
             text: '阅读书籍',
             items: [{
                 text: '一、Node.js 开发指南',
-                link: '/principleKnowledge/book1/1.preparation'
+                link: '/senior/book1/1.preparation'
               },
               {
                 text: '二、了不起的 Node.js',
-                link: '/principleKnowledge/vuex'
+                link: '/senior/vuex'
               },
               {
                 text: '三、Node.js 实战',
-                link: '/principleKnowledge/vue-router'
+                link: '/senior/vue-router'
               },
               {
                 text: '四、深入浅出 Node.js',
-                link: '/principleKnowledge/element/Pagination'
+                link: '/senior/element/Pagination'
               }
             ]
           }
         ],
         sidebar: {
-          '/basicKnowledge/stack/': [ //一、堆栈内存和闭包作用域
+          '/base/stack/': [ //一、堆栈内存和闭包作用域
             '1.dataType', //9 种数据类型区别及相互转换
             '2.lexicalAnalysis',
             '3.heapStack',
@@ -194,7 +194,7 @@ module.exports = {
             '14.data',
             '15.api'
           ],
-          '/basicKnowledge/oop/': [ //二、面向对象程序设计
+          '/base/oop/': [ //二、面向对象程序设计
             '1.objectOriented',
             '2.constructor',
             '3.prototype',
@@ -205,7 +205,7 @@ module.exports = {
             '8.jQuery',
             '9.lodash'
           ],
-          '/basicKnowledge/3.browser/': [ //三、同步异步编程及浏览器渲染机制
+          '/base/3.browser/': [ //三、同步异步编程及浏览器渲染机制
             '1.browser',
             '2.tree',
             '3.reflow',
@@ -216,13 +216,13 @@ module.exports = {
             '8.skeleton',
             '9.test'
           ],
-          '/basicKnowledge/dom/': [ //四、DOM事件及设计模式
+          '/base/dom/': [ //四、DOM事件及设计模式
             '1.event'
           ],
-          '/basicKnowledge/es6/': [ //五、ES6+核心知识和源码分析
+          '/base/es6/': [ //五、ES6+核心知识和源码分析
             '1.let',
           ],
-          '/basicKnowledge/http/': [ //六、AJAX/HTTP前后端数据通信
+          '/base/http/': [ //六、AJAX/HTTP前后端数据通信
             '1.http',
             '2.https',
             '3.tcp',
@@ -230,7 +230,7 @@ module.exports = {
             '5.dns',
             '6.http',
           ],
-          '/specialKnowledge/h5/': [
+          '/senior/h5/': [
             'skill',
             'bug',
             'webpack',
@@ -239,7 +239,7 @@ module.exports = {
             'prem',
             'i18n'
           ],
-          '/specialKnowledge/performance/': [ //性能优化
+          '/senior/performance/': [ //性能优化
             '1.CDN', //cdn
             '2.cache', //缓存
             '3.componentCommunication',
@@ -253,22 +253,22 @@ module.exports = {
             '11.debounceAndThrottle', //防抖与节流
             '12.webpack'
           ],
-          '/specialKnowledge/typeScript/': [
+          '/senior/typeScript/': [
             '15.api'
           ],
-          '/specialKnowledge/monitor/': [ //前端监控
+          '/senior/monitor/': [ //前端监控
             '13.jiankong'
           ],
-          // '/specialKnowledge/npm/': [
+          // '/senior/npm/': [
           //   '1.recursionAndDynamics'
           // ],
-          '/specialKnowledge/security/': [ //前端安全
+          '/senior/security/': [ //前端安全
             '1.xss',
             '2.csrf',
             '3.doos',
             '4.http'
           ],
-          '/principleKnowledge/book1/': [
+          '/senior/book1/': [
             '1.preparation',
             '2.dataDriven',
             '3.componentization',
@@ -278,7 +278,7 @@ module.exports = {
             '7.vueRouter',
             '8.vuex'
           ],
-          '/principleKnowledge/element/': [
+          '/senior/element/': [
             'Pagination',
             'Dialog',
             'Autocomplete',
