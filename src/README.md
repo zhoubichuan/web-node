@@ -5,10 +5,10 @@ heroImage: ""
 actionText: 先睹为快 →
 actionLink: /base/build/1.config
 pageClass: page_index
-footer: JavaScript相关知识
+footer: Node相关知识
 meta:
   - name: keywords
-    content: JavaScript相关,前端学习,前端笔记
+    content: Node相关,前端学习,前端笔记
 ---
 
 <template>

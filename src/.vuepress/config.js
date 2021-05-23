@@ -1,11 +1,11 @@
 module.exports = {
   // 基础配置
   base: '/Web-Node/', // 部署站点的基础路径
-  description: 'JavaScript相关知识点',
+  description: 'Node相关知识点',
   locales: {
     // 默认标题
     '/': {
-      title: 'JavaScript笔记',
+      title: 'Node笔记',
       description: ''
     }
   },
@@ -103,7 +103,7 @@ module.exports = {
         nav: [{
             text: '基础知识',
             items: [{
-                text: '一、堆栈内存和闭包作用域',
+                text: '一、node',
                 link: '/base/stack/1.dataType'
               },
               {
@@ -123,7 +123,7 @@ module.exports = {
                 link: '/base/es6/1.let'
               },
               {
-                text: '六、AJAX/HTTP数据通信',
+                text: '六.websocket',
                 link: '/base/http/1.http'
               }
             ]
