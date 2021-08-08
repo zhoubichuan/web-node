@@ -241,10 +241,10 @@ module.exports = {
             'prem',
             'i18n'
           ],
-          '/senior/http/': [ //性能优化
-            '1.http', //cdn
-            '2.cache', //缓存
-            '3.componentCommunication',
+          '/senior/http/': [
+            '1.http',
+            '2.http',
+            '3.https',
             '4.render',
             '5.api',
             '6.form',
