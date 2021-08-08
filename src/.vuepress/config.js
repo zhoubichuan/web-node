@@ -101,100 +101,102 @@ module.exports = {
         editLinkText: '在github上编辑此页',
         lastUpdated: '上次更新', // 获取每个文件最后一次 git 提交的时间戳
         nav: [{
-            text: '基础知识',
-            items: [{
-                text: '一、node',
-                link: '/base/stack/1.dataType'
-              },
-              {
-                text: '二、面向对象程序设计',
-                link: '/base/oop/1.objectOriented'
-              },
-              {
-                text: '三、浏览器渲染机制',
-                link: '/base/3.browser/1.browser'
-              },
-              {
-                text: '四、DOM事件及设计模式',
-                link: '/base/dom/1.event'
-              },
-              {
-                text: '五、ES6+核心源码分析',
-                link: '/base/es6/1.let'
-              },
-              {
-                text: '六.websocket',
-                link: '/base/http/1.http'
-              }
-            ]
+          text: '基础知识',
+          items: [{
+            text: '一.Node基础',
+            link: '/base/stack/1.node'
           },
           {
-            text: '专项知识',
-            items: [{
-                text: '一、前端性能优化',
-                link: '/senior/performance/1.CDN'
-              },
-              {
-                text: '二、TypeScript',
-                link: '/senior/typeScript/15.api'
-              },
-              {
-                text: '三、前端监控',
-                link: '/senior/monitor/13.jiankong'
-              },
-              {
-                text: '四、安全防范',
-                link: '/senior/security/1.xss'
-              },
-              {
-                text: '五、文件上传下载',
-                link: '/senior/security/1.xss'
-              },
-              {
-                text: '六、移动端开发',
-                link: '/senior/h5/skill',
-              }
-            ]
+            text: '二.面向对象程序设计',
+            link: '/base/oop/1.objectOriented'
           },
           {
-            text: '阅读书籍',
-            items: [{
-                text: '一、Node.js 开发指南',
-                link: '/senior/book1/1.preparation'
-              },
-              {
-                text: '二、了不起的 Node.js',
-                link: '/senior/vuex'
-              },
-              {
-                text: '三、Node.js 实战',
-                link: '/senior/vue-router'
-              },
-              {
-                text: '四、深入浅出 Node.js',
-                link: '/senior/element/Pagination'
-              }
-            ]
+            text: '三.浏览器渲染机制',
+            link: '/base/3.browser/1.browser'
+          },
+          {
+            text: '四.DOM事件及设计模式',
+            link: '/base/dom/1.event'
+          },
+          {
+            text: '五.ES6+核心源码分析',
+            link: '/base/es6/1.let'
+          },
+          {
+            text: '六.websocket',
+            link: '/base/http/1.http'
           }
+          ]
+        },
+        {
+          text: '专项知识',
+          items: [{
+            text: '一.http && https',
+            link: '/senior/http/1.http'
+          },
+          {
+            text: '二.network',
+            link: '/senior/network/1.network'
+          },
+          {
+            text: '三.cookie && session',
+            link: '/senior/cookie/1.cookie'
+          },
+          {
+            text: '四.安全防范',
+            link: '/senior/security/1.xss'
+          },
+          {
+            text: '五.文件上传下载',
+            link: '/senior/security/1.xss'
+          },
+          {
+            text: '六.移动端开发',
+            link: '/senior/h5/skill',
+          }
+          ]
+        },
+        {
+          text: '阅读书籍',
+          items: [{
+            text: '一.Node.js 开发指南',
+            link: '/read/book1/1.preparation'
+          },
+          {
+            text: '二.了不起的 Node.js',
+            link: '/read/book2/1.preparation'
+          },
+          {
+            text: '三.Node.js 实战',
+            link: '/read/book3/1.preparation'
+          },
+          {
+            text: '四.深入浅出 Node.js',
+            link: '/read/book4/1.preparation'
+          }
+          ]
+        }
         ],
         sidebar: {
-          '/base/stack/': [ //一、堆栈内存和闭包作用域
-            '1.dataType', //9 种数据类型区别及相互转换
-            '2.lexicalAnalysis',
-            '3.heapStack',
-            '4.bottomLayerOperation',
-            '5.scope',
-            '7.closure',
-            '8.highLevelProgramming',
-            '9.utils',
-            '10.ui',
-            '11.data',
-            '12.skill',
-            '13.com',
-            '14.data',
-            '15.api'
+          '/base/stack/': [
+            '1.node',
+            '2.install',
+            '3.repl',
+            '4.core',
+            '5.module',
+            '6.encoding',
+            '7.buffer',
+            '8.fs',
+            '9.stream',
+            '10.cache',
+            '11.tcp',
+            '12.yargs',
+            '13.compress',
+            '14.crypto',
+            '15.process',
+            '16.action'
           ],
-          '/base/oop/': [ //二、面向对象程序设计
+          '/base/oop/': [ //二.面向对象程序设计
             '1.objectOriented',
             '2.constructor',
             '3.prototype',
@@ -205,7 +207,7 @@ module.exports = {
             '8.jQuery',
             '9.lodash'
           ],
-          '/base/3.browser/': [ //三、同步异步编程及浏览器渲染机制
+          '/base/3.browser/': [ //三.同步异步编程及浏览器渲染机制
             '1.browser',
             '2.tree',
             '3.reflow',
@@ -216,13 +218,13 @@ module.exports = {
             '8.skeleton',
             '9.test'
           ],
-          '/base/dom/': [ //四、DOM事件及设计模式
+          '/base/dom/': [ //四.DOM事件及设计模式
             '1.event'
           ],
-          '/base/es6/': [ //五、ES6+核心知识和源码分析
+          '/base/es6/': [ //五.ES6+核心知识和源码分析
             '1.let',
           ],
-          '/base/http/': [ //六、AJAX/HTTP前后端数据通信
+          '/base/http/': [ //六.AJAX/HTTP前后端数据通信
             '1.http',
             '2.https',
             '3.tcp',
@@ -239,8 +241,8 @@ module.exports = {
             'prem',
             'i18n'
           ],
-          '/senior/performance/': [ //性能优化
-            '1.CDN', //cdn
+          '/senior/http/': [ //性能优化
+            '1.http', //cdn
             '2.cache', //缓存
             '3.componentCommunication',
             '4.render',
@@ -253,110 +255,42 @@ module.exports = {
             '11.debounceAndThrottle', //防抖与节流
             '12.webpack'
           ],
-          '/senior/typeScript/': [
-            '15.api'
+          '/senior/network/': [
+            '1.network'
           ],
-          '/senior/monitor/': [ //前端监控
-            '13.jiankong'
+          '/senior/cookie/': [ //前端监控
+            '1.cookie'
           ],
-          // '/senior/npm/': [
-          //   '1.recursionAndDynamics'
-          // ],
           '/senior/security/': [ //前端安全
             '1.xss',
             '2.csrf',
             '3.doos',
             '4.http'
           ],
-          '/senior/book1/': [
+          '/read/book1/': [
             '1.preparation',
             '2.dataDriven',
             '3.componentization',
             '4.deepResponsePrinciple',
-            // '5.compile',
-            // '6.extend',
-            // '7.vueRouter',
-            // '8.vuex'
           ],
-          '/senior/element/': [
-            'Pagination',
-            'Dialog',
-            'Autocomplete',
-            'Dropdown',
-            'DropdownMenu',
-            'DropdownItem',
-            'Menu',
-            'Submenu',
-            'MenuItem',
-            'MenuItemGroup',
-            'Input',
-            'InputNumber',
-            'Radio',
-            'RadioGroup',
-            'RadioButton',
-            'Checkbox',
-            'CheckboxButton',
-            'CheckboxGroup',
-            'Switch',
-            'Option',
-            'OptionGroup',
-            'Button',
-            'ButtonGroup',
-            'Table',
-            'TableColumn',
-            'DatePicker',
-            'TimeSelect',
-            'TimePicker',
-            'Popover',
-            'Tooltip',
-            'Breadcrumb',
-            'BreadcrumbItem',
-            'Form',
-            'FormItem',
-            'Tabs',
-            'TabPane',
-            'Tag',
-            'Tree',
-            'Alert',
-            'Slider',
-            'Icon',
-            'Row',
-            'Col',
-            'Upload',
-            'Progress',
-            'Spinner',
-            'Badge',
-            'Card',
-            'Rate',
-            'Steps',
-            'Step',
-            'Carousel',
-            'Scrollbar',
-            'CarouselItem',
-            'Collapse',
-            'CollapseItem',
-            'Cascader',
-            'ColorPicker',
-            'Transfer',
-            'Container',
-            'Header',
-            'Aside',
-            'Main',
-            'Footer',
-            'Timeline',
-            'TimelineItem',
-            'Link', 'Divider',
-            'Image',
-            'Calendar',
-            'Backtop',
-            'PageHeader',
-            'CascaderPanel',
-            'Avatar',
-            'Drawer',
-            'Popconfirm',
-            'CollapseTransition',
-            'MessageBox'
-          ]
+          '/read/book2/': [
+            '1.preparation',
+            '2.dataDriven',
+            '3.componentization',
+            '4.deepResponsePrinciple',
+          ],
+          '/read/book3/': [
+            '1.preparation',
+            '2.dataDriven',
+            '3.componentization',
+            '4.deepResponsePrinciple',
+          ],
+          '/read/book4/': [
+            '1.preparation',
+            '2.dataDriven',
+            '3.componentization',
+            '4.deepResponsePrinciple',
+          ],
         }
       }
     }
