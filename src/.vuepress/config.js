@@ -5,8 +5,8 @@ module.exports = {
   locales: {
     // 默认标题
     '/': {
-      title: 'Node笔记',
-      description: ''
+      title: 'Node学习笔记',
+      description: '星光不问赶路人,岁月不负有心人'
     }
   },
   markdown: {
@@ -147,12 +147,12 @@ module.exports = {
             link: '/senior/security/1.xss'
           },
           {
-            text: '五.文件上传下载',
-            link: '/senior/security/1.xss'
+            text: '五.Serverless',
+            link: '/senior/serverless/1.index'
           },
           {
-            text: '六.移动端开发',
-            link: '/senior/h5/skill',
+            text: '六.GraphQL',
+            link: '/senior/graphql/1.index',
           }
           ]
         },
@@ -232,13 +232,8 @@ module.exports = {
             '5.dns',
             '6.http',
           ],
-          '/senior/h5/': [
-            'skill',
-            'bug',
-            'webpack',
-            'vscode',
-            'test',
-            'prem',
+          '/senior/graphql/': [
+            '1.index',
             'i18n'
           ],
           '/senior/http/': [
@@ -257,6 +252,9 @@ module.exports = {
           ],
           '/senior/network/': [
             '1.network'
+          ],
+          '/senior/serverless/': [
+            '1.index'
           ],
           '/senior/cookie/': [ //前端监控
             '1.cookie'
