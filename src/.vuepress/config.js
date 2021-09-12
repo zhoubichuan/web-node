@@ -1,6 +1,6 @@
 module.exports = {
   // 基础配置
-  base: '/Web-Node/', // 部署站点的基础路径
+  base: '/web-node/', // 部署站点的基础路径
   description: 'Node相关知识点',
   locales: {
     // 默认标题
@@ -103,7 +103,7 @@ module.exports = {
         nav: [{
           text: '基础知识',
           items: [{
-            text: '一.Node基础',
+            text: '一.Node',
             link: '/base/stack/1.node'
           },
           {

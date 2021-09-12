@@ -1,10 +1,10 @@
 {
-  "name": "Node",
+  "name": "Node学习笔记",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "author": "zhoubichaun@icloud.com",
-  "hommepage": "https://github.com/zhoubichuan/Web-Node/",
+  "hommepage": "https://github.com/zhoubichuan/web-node/",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -13,7 +13,8 @@
     "src:build": "vuepress build src",
     "getname": "node utils/getFilenames.js",
     "deploy": "bash deploy.sh",
-    "gh-pages": "bash deploy_gh-pages.sh"
+    "github": "bash github.sh",
+    "gitee": "bash gitee.sh"
   },
   "devDependencies": {
     "vuepress": "^0.14.4",
