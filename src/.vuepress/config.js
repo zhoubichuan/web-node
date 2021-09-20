@@ -56,6 +56,7 @@ module.exports = {
     ]
   ],
   plugins: [
+    '@vuepress/medium-zoom',
     'demo-block',
     // you can use this plugin multiple times
     [
@@ -103,7 +104,7 @@ module.exports = {
         nav: [{
           text: '基础知识',
           items: [{
-            text: '一.Node',
+            text: '一.node',
             link: '/base/stack/1.node'
           },
           {
@@ -129,7 +130,7 @@ module.exports = {
           ]
         },
         {
-          text: '专项知识',
+          text: '高级知识',
           items: [{
             text: '一.http && https',
             link: '/senior/http/1.http'
