@@ -125,7 +125,7 @@ module.exports = {
           },
           {
             text: '六.websocket',
-            link: '/base/http/1.http'
+            link: '/base/websocket/1.index'
           }
           ]
         },
@@ -225,13 +225,12 @@ module.exports = {
           '/base/es6/': [ //五.ES6+核心知识和源码分析
             '1.let',
           ],
-          '/base/http/': [ //六.AJAX/HTTP前后端数据通信
-            '1.http',
+          '/base/websocket/': [
+            '1.index',
             '2.https',
             '3.tcp',
-            '4.catch',
             '5.dns',
-            '6.http',
+            '6.websocket',
           ],
           '/senior/graphql/': [
             '1.index',
