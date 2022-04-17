@@ -132,7 +132,7 @@ module.exports = {
         {
           text: '高级知识',
           items: [{
-            text: '一.http && https',
+            text: '一.计算机网络',
             link: '/senior/http/1.http'
           },
           {
