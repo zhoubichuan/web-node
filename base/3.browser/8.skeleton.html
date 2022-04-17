@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>八、页面白屏优化之骨架屏技术 | Node学习笔记</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+    <link rel="icon" href="/web-node/favicon.ico">
+    <meta name="description" content="个人总结的vuepress学习技术文档-语法">
+    <meta name="keywords" content="vuepress,最新技术文档,vuepress语法,markdown语法">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/web-node/assets/css/0.styles.6cfc1581.css" as="style"><link rel="preload" href="/web-node/assets/js/app.d5d4222c.js" as="script"><link rel="preload" href="/web-node/assets/js/2.5f5e3275.js" as="script"><link rel="preload" href="/web-node/assets/js/22.c530f99e.js" as="script"><link rel="prefetch" href="/web-node/assets/js/10.20b5cdb2.js"><link rel="prefetch" href="/web-node/assets/js/11.2a50b1ba.js"><link rel="prefetch" href="/web-node/assets/js/12.d45852b0.js"><link rel="prefetch" href="/web-node/assets/js/13.708f2743.js"><link rel="prefetch" href="/web-node/assets/js/14.5a9e0f60.js"><link rel="prefetch" href="/web-node/assets/js/15.9f4c3d7d.js"><link rel="prefetch" href="/web-node/assets/js/16.7eeefc50.js"><link rel="prefetch" href="/web-node/assets/js/17.c14901a9.js"><link rel="prefetch" href="/web-node/assets/js/18.4a4e2452.js"><link rel="prefetch" href="/web-node/assets/js/19.6f25afa8.js"><link rel="prefetch" href="/web-node/assets/js/20.4928ee6d.js"><link rel="prefetch" href="/web-node/assets/js/21.c00ffaf6.js"><link rel="prefetch" href="/web-node/assets/js/23.3d81b161.js"><link rel="prefetch" href="/web-node/assets/js/24.003a3b12.js"><link rel="prefetch" href="/web-node/assets/js/25.c1e0f780.js"><link rel="prefetch" href="/web-node/assets/js/26.47cc14a7.js"><link rel="prefetch" href="/web-node/assets/js/27.c697a620.js"><link rel="prefetch" href="/web-node/assets/js/28.0134b6be.js"><link rel="prefetch" href="/web-node/assets/js/29.18a1161d.js"><link rel="prefetch" href="/web-node/assets/js/3.6bdf027f.js"><link rel="prefetch" href="/web-node/assets/js/30.ca126947.js"><link rel="prefetch" href="/web-node/assets/js/31.ecdd469c.js"><link rel="prefetch" href="/web-node/assets/js/32.2a858edc.js"><link rel="prefetch" href="/web-node/assets/js/33.cd1ebd22.js"><link rel="prefetch" href="/web-node/assets/js/34.e38e3704.js"><link rel="prefetch" href="/web-node/assets/js/35.49df890d.js"><link rel="prefetch" href="/web-node/assets/js/36.810590ba.js"><link rel="prefetch" href="/web-node/assets/js/37.610396c8.js"><link rel="prefetch" href="/web-node/assets/js/38.4896f73f.js"><link rel="prefetch" href="/web-node/assets/js/39.c3cb6305.js"><link rel="prefetch" href="/web-node/assets/js/4.3686ee7d.js"><link rel="prefetch" href="/web-node/assets/js/40.a12b3a41.js"><link rel="prefetch" href="/web-node/assets/js/41.6b39235f.js"><link rel="prefetch" href="/web-node/assets/js/42.538be5d3.js"><link rel="prefetch" href="/web-node/assets/js/43.40aac80f.js"><link rel="prefetch" href="/web-node/assets/js/44.34f40c8b.js"><link rel="prefetch" href="/web-node/assets/js/45.2d083dc2.js"><link rel="prefetch" href="/web-node/assets/js/46.e5d3e4fe.js"><link rel="prefetch" href="/web-node/assets/js/47.2a4c60a8.js"><link rel="prefetch" href="/web-node/assets/js/48.cde5fbb6.js"><link rel="prefetch" href="/web-node/assets/js/49.3ccec2e4.js"><link rel="prefetch" href="/web-node/assets/js/5.83038b23.js"><link rel="prefetch" href="/web-node/assets/js/50.49d65ecd.js"><link rel="prefetch" href="/web-node/assets/js/51.77cc2b8e.js"><link rel="prefetch" href="/web-node/assets/js/52.6cb89b0a.js"><link rel="prefetch" href="/web-node/assets/js/53.448491d8.js"><link rel="prefetch" href="/web-node/assets/js/54.809ef06b.js"><link rel="prefetch" href="/web-node/assets/js/55.09027a9f.js"><link rel="prefetch" href="/web-node/assets/js/56.5ae3cfa6.js"><link rel="prefetch" href="/web-node/assets/js/57.2162a840.js"><link rel="prefetch" href="/web-node/assets/js/58.2bb8f834.js"><link rel="prefetch" href="/web-node/assets/js/59.2933cbe8.js"><link rel="prefetch" href="/web-node/assets/js/6.60c184a2.js"><link rel="prefetch" href="/web-node/assets/js/60.4134b608.js"><link rel="prefetch" href="/web-node/assets/js/61.88c214b6.js"><link rel="prefetch" href="/web-node/assets/js/62.e5af9f99.js"><link rel="prefetch" href="/web-node/assets/js/63.1c7905cd.js"><link rel="prefetch" href="/web-node/assets/js/64.1143b1db.js"><link rel="prefetch" href="/web-node/assets/js/65.55bc4e9e.js"><link rel="prefetch" href="/web-node/assets/js/66.68013601.js"><link rel="prefetch" href="/web-node/assets/js/67.3389eca8.js"><link rel="prefetch" href="/web-node/assets/js/68.26778b8e.js"><link rel="prefetch" href="/web-node/assets/js/69.40175a1d.js"><link rel="prefetch" href="/web-node/assets/js/7.68d53ae9.js"><link rel="prefetch" href="/web-node/assets/js/70.656d0745.js"><link rel="prefetch" href="/web-node/assets/js/71.70f0cd47.js"><link rel="prefetch" href="/web-node/assets/js/72.2954dbec.js"><link rel="prefetch" href="/web-node/assets/js/73.daaa30af.js"><link rel="prefetch" href="/web-node/assets/js/74.3c67a22d.js"><link rel="prefetch" href="/web-node/assets/js/75.6b97abf6.js"><link rel="prefetch" href="/web-node/assets/js/76.8bf0a1a2.js"><link rel="prefetch" href="/web-node/assets/js/77.0afe0d93.js"><link rel="prefetch" href="/web-node/assets/js/78.3de96fe0.js"><link rel="prefetch" href="/web-node/assets/js/79.86611ff0.js"><link rel="prefetch" href="/web-node/assets/js/8.8e55cebf.js"><link rel="prefetch" href="/web-node/assets/js/80.95af76bf.js"><link rel="prefetch" href="/web-node/assets/js/81.88cd5b8a.js"><link rel="prefetch" href="/web-node/assets/js/82.287e0e93.js"><link rel="prefetch" href="/web-node/assets/js/83.2b59aa7e.js"><link rel="prefetch" href="/web-node/assets/js/84.450b55df.js"><link rel="prefetch" href="/web-node/assets/js/85.70715b2d.js"><link rel="prefetch" href="/web-node/assets/js/86.44b2b4c6.js"><link rel="prefetch" href="/web-node/assets/js/87.856d3c53.js"><link rel="prefetch" href="/web-node/assets/js/88.b56313ca.js"><link rel="prefetch" href="/web-node/assets/js/89.bf72389e.js"><link rel="prefetch" href="/web-node/assets/js/9.af38e047.js">
+    <link rel="stylesheet" href="/web-node/assets/css/0.styles.6cfc1581.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/web-node/" class="home-link router-link-active"><!----> <span class="site-name">Node学习笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础知识" class="dropdown-title"><span class="title">基础知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础知识" class="mobile-dropdown-title"><span class="title">基础知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web-node/base/stack/1.node.html" class="nav-link">
+  一.node
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/oop/1.objectOriented.html" class="nav-link">
+  二.面向对象程序设计
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/3.browser/1.browser.html" class="nav-link">
+  三.浏览器渲染机制
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/dom/1.event.html" class="nav-link">
+  四.DOM事件及设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/es6/1.let.html" class="nav-link">
+  五.ES6+核心源码分析
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/websocket/1.index.html" class="nav-link">
+  六.websocket
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="高级知识" class="dropdown-title"><span class="title">高级知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="高级知识" class="mobile-dropdown-title"><span class="title">高级知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web-node/senior/http/1.http.html" class="nav-link">
+  一.计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/network/1.network.html" class="nav-link">
+  二.network
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/cookie/1.cookie.html" class="nav-link">
+  三.cookie &amp;&amp; session
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/security/1.xss.html" class="nav-link">
+  四.安全防范
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/serverless/1.index.html" class="nav-link">
+  五.Serverless
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/graphql/1.index.html" class="nav-link">
+  六.GraphQL
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="阅读书籍" class="dropdown-title"><span class="title">阅读书籍</span> <span class="arrow down"></span></button> <button type="button" aria-label="阅读书籍" class="mobile-dropdown-title"><span class="title">阅读书籍</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web-node/read/book1/1.preparation.html" class="nav-link">
+  一.Node.js 开发指南
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/read/book2/1.preparation.html" class="nav-link">
+  二.了不起的 Node.js
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/read/book3/1.preparation.html" class="nav-link">
+  三.Node.js 实战
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/read/book4/1.preparation.html" class="nav-link">
+  四.深入浅出 Node.js
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础知识" class="dropdown-title"><span class="title">基础知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础知识" class="mobile-dropdown-title"><span class="title">基础知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web-node/base/stack/1.node.html" class="nav-link">
+  一.node
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/oop/1.objectOriented.html" class="nav-link">
+  二.面向对象程序设计
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/3.browser/1.browser.html" class="nav-link">
+  三.浏览器渲染机制
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/dom/1.event.html" class="nav-link">
+  四.DOM事件及设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/es6/1.let.html" class="nav-link">
+  五.ES6+核心源码分析
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/websocket/1.index.html" class="nav-link">
+  六.websocket
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="高级知识" class="dropdown-title"><span class="title">高级知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="高级知识" class="mobile-dropdown-title"><span class="title">高级知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web-node/senior/http/1.http.html" class="nav-link">
+  一.计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/network/1.network.html" class="nav-link">
+  二.network
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/cookie/1.cookie.html" class="nav-link">
+  三.cookie &amp;&amp; session
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/security/1.xss.html" class="nav-link">
+  四.安全防范
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/serverless/1.index.html" class="nav-link">
+  五.Serverless
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/graphql/1.index.html" class="nav-link">
+  六.GraphQL
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="阅读书籍" class="dropdown-title"><span class="title">阅读书籍</span> <span class="arrow down"></span></button> <button type="button" aria-label="阅读书籍" class="mobile-dropdown-title"><span class="title">阅读书籍</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web-node/read/book1/1.preparation.html" class="nav-link">
+  一.Node.js 开发指南
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/read/book2/1.preparation.html" class="nav-link">
+  二.了不起的 Node.js
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/read/book3/1.preparation.html" class="nav-link">
+  三.Node.js 实战
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/read/book4/1.preparation.html" class="nav-link">
+  四.深入浅出 Node.js
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/web-node/base/3.browser/1.browser.html" class="sidebar-link">一、浏览器底层渲染机制</a></li><li><a href="/web-node/base/3.browser/2.tree.html" class="sidebar-link">二、浏览器运行机制</a></li><li><a href="/web-node/base/3.browser/3.reflow.html" class="sidebar-link">三、DOM优化</a></li><li><a href="/web-node/base/3.browser/4.async.html" class="sidebar-link">四、同步异步编程</a></li><li><a href="/web-node/base/3.browser/5.eventLoop.html" class="sidebar-link">五、事件循环和事件队列</a></li><li><a href="/web-node/base/3.browser/6.microtaskMacrotask.html" class="sidebar-link">六、微任务和宏任务</a></li><li><a href="/web-node/base/3.browser/7.crp.html" class="sidebar-link">七、CRP 关键节点性能优化</a></li><li><a href="/web-node/base/3.browser/8.skeleton.html" aria-current="page" class="active sidebar-link">八、页面白屏优化之骨架屏技术</a></li><li><a href="/web-node/base/3.browser/9.test.html" class="sidebar-link">BAT/TMD 经典面试题</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="八、页面白屏优化之骨架屏技术"><a href="#八、页面白屏优化之骨架屏技术" class="header-anchor">#</a> 八、页面白屏优化之骨架屏技术</h1></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/5/16 下午9:35:54</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/web-node/base/3.browser/7.crp.html" class="prev">
+        七、CRP 关键节点性能优化
+      </a></span> <span class="next"><a href="/web-node/base/3.browser/9.test.html">
+        BAT/TMD 经典面试题
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/web-node/assets/js/app.d5d4222c.js" defer></script><script src="/web-node/assets/js/2.5f5e3275.js" defer></script><script src="/web-node/assets/js/22.c530f99e.js" defer></script>
+  </body>
+</html>

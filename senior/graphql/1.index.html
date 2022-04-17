@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>GraphQL | Node学习笔记</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+    <link rel="icon" href="/web-node/favicon.ico">
+    <meta name="description" content="个人总结的vuepress学习技术文档-语法">
+    <meta name="keywords" content="vuepress,最新技术文档,vuepress语法,markdown语法">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/web-node/assets/css/0.styles.6cfc1581.css" as="style"><link rel="preload" href="/web-node/assets/js/app.d5d4222c.js" as="script"><link rel="preload" href="/web-node/assets/js/2.5f5e3275.js" as="script"><link rel="preload" href="/web-node/assets/js/71.70f0cd47.js" as="script"><link rel="prefetch" href="/web-node/assets/js/10.20b5cdb2.js"><link rel="prefetch" href="/web-node/assets/js/11.2a50b1ba.js"><link rel="prefetch" href="/web-node/assets/js/12.d45852b0.js"><link rel="prefetch" href="/web-node/assets/js/13.708f2743.js"><link rel="prefetch" href="/web-node/assets/js/14.5a9e0f60.js"><link rel="prefetch" href="/web-node/assets/js/15.9f4c3d7d.js"><link rel="prefetch" href="/web-node/assets/js/16.7eeefc50.js"><link rel="prefetch" href="/web-node/assets/js/17.c14901a9.js"><link rel="prefetch" href="/web-node/assets/js/18.4a4e2452.js"><link rel="prefetch" href="/web-node/assets/js/19.6f25afa8.js"><link rel="prefetch" href="/web-node/assets/js/20.4928ee6d.js"><link rel="prefetch" href="/web-node/assets/js/21.c00ffaf6.js"><link rel="prefetch" href="/web-node/assets/js/22.c530f99e.js"><link rel="prefetch" href="/web-node/assets/js/23.3d81b161.js"><link rel="prefetch" href="/web-node/assets/js/24.003a3b12.js"><link rel="prefetch" href="/web-node/assets/js/25.c1e0f780.js"><link rel="prefetch" href="/web-node/assets/js/26.47cc14a7.js"><link rel="prefetch" href="/web-node/assets/js/27.c697a620.js"><link rel="prefetch" href="/web-node/assets/js/28.0134b6be.js"><link rel="prefetch" href="/web-node/assets/js/29.18a1161d.js"><link rel="prefetch" href="/web-node/assets/js/3.6bdf027f.js"><link rel="prefetch" href="/web-node/assets/js/30.ca126947.js"><link rel="prefetch" href="/web-node/assets/js/31.ecdd469c.js"><link rel="prefetch" href="/web-node/assets/js/32.2a858edc.js"><link rel="prefetch" href="/web-node/assets/js/33.cd1ebd22.js"><link rel="prefetch" href="/web-node/assets/js/34.e38e3704.js"><link rel="prefetch" href="/web-node/assets/js/35.49df890d.js"><link rel="prefetch" href="/web-node/assets/js/36.810590ba.js"><link rel="prefetch" href="/web-node/assets/js/37.610396c8.js"><link rel="prefetch" href="/web-node/assets/js/38.4896f73f.js"><link rel="prefetch" href="/web-node/assets/js/39.c3cb6305.js"><link rel="prefetch" href="/web-node/assets/js/4.3686ee7d.js"><link rel="prefetch" href="/web-node/assets/js/40.a12b3a41.js"><link rel="prefetch" href="/web-node/assets/js/41.6b39235f.js"><link rel="prefetch" href="/web-node/assets/js/42.538be5d3.js"><link rel="prefetch" href="/web-node/assets/js/43.40aac80f.js"><link rel="prefetch" href="/web-node/assets/js/44.34f40c8b.js"><link rel="prefetch" href="/web-node/assets/js/45.2d083dc2.js"><link rel="prefetch" href="/web-node/assets/js/46.e5d3e4fe.js"><link rel="prefetch" href="/web-node/assets/js/47.2a4c60a8.js"><link rel="prefetch" href="/web-node/assets/js/48.cde5fbb6.js"><link rel="prefetch" href="/web-node/assets/js/49.3ccec2e4.js"><link rel="prefetch" href="/web-node/assets/js/5.83038b23.js"><link rel="prefetch" href="/web-node/assets/js/50.49d65ecd.js"><link rel="prefetch" href="/web-node/assets/js/51.77cc2b8e.js"><link rel="prefetch" href="/web-node/assets/js/52.6cb89b0a.js"><link rel="prefetch" href="/web-node/assets/js/53.448491d8.js"><link rel="prefetch" href="/web-node/assets/js/54.809ef06b.js"><link rel="prefetch" href="/web-node/assets/js/55.09027a9f.js"><link rel="prefetch" href="/web-node/assets/js/56.5ae3cfa6.js"><link rel="prefetch" href="/web-node/assets/js/57.2162a840.js"><link rel="prefetch" href="/web-node/assets/js/58.2bb8f834.js"><link rel="prefetch" href="/web-node/assets/js/59.2933cbe8.js"><link rel="prefetch" href="/web-node/assets/js/6.60c184a2.js"><link rel="prefetch" href="/web-node/assets/js/60.4134b608.js"><link rel="prefetch" href="/web-node/assets/js/61.88c214b6.js"><link rel="prefetch" href="/web-node/assets/js/62.e5af9f99.js"><link rel="prefetch" href="/web-node/assets/js/63.1c7905cd.js"><link rel="prefetch" href="/web-node/assets/js/64.1143b1db.js"><link rel="prefetch" href="/web-node/assets/js/65.55bc4e9e.js"><link rel="prefetch" href="/web-node/assets/js/66.68013601.js"><link rel="prefetch" href="/web-node/assets/js/67.3389eca8.js"><link rel="prefetch" href="/web-node/assets/js/68.26778b8e.js"><link rel="prefetch" href="/web-node/assets/js/69.40175a1d.js"><link rel="prefetch" href="/web-node/assets/js/7.68d53ae9.js"><link rel="prefetch" href="/web-node/assets/js/70.656d0745.js"><link rel="prefetch" href="/web-node/assets/js/72.2954dbec.js"><link rel="prefetch" href="/web-node/assets/js/73.daaa30af.js"><link rel="prefetch" href="/web-node/assets/js/74.3c67a22d.js"><link rel="prefetch" href="/web-node/assets/js/75.6b97abf6.js"><link rel="prefetch" href="/web-node/assets/js/76.8bf0a1a2.js"><link rel="prefetch" href="/web-node/assets/js/77.0afe0d93.js"><link rel="prefetch" href="/web-node/assets/js/78.3de96fe0.js"><link rel="prefetch" href="/web-node/assets/js/79.86611ff0.js"><link rel="prefetch" href="/web-node/assets/js/8.8e55cebf.js"><link rel="prefetch" href="/web-node/assets/js/80.95af76bf.js"><link rel="prefetch" href="/web-node/assets/js/81.88cd5b8a.js"><link rel="prefetch" href="/web-node/assets/js/82.287e0e93.js"><link rel="prefetch" href="/web-node/assets/js/83.2b59aa7e.js"><link rel="prefetch" href="/web-node/assets/js/84.450b55df.js"><link rel="prefetch" href="/web-node/assets/js/85.70715b2d.js"><link rel="prefetch" href="/web-node/assets/js/86.44b2b4c6.js"><link rel="prefetch" href="/web-node/assets/js/87.856d3c53.js"><link rel="prefetch" href="/web-node/assets/js/88.b56313ca.js"><link rel="prefetch" href="/web-node/assets/js/89.bf72389e.js"><link rel="prefetch" href="/web-node/assets/js/9.af38e047.js">
+    <link rel="stylesheet" href="/web-node/assets/css/0.styles.6cfc1581.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/web-node/" class="home-link router-link-active"><!----> <span class="site-name">Node学习笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础知识" class="dropdown-title"><span class="title">基础知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础知识" class="mobile-dropdown-title"><span class="title">基础知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web-node/base/stack/1.node.html" class="nav-link">
+  一.node
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/oop/1.objectOriented.html" class="nav-link">
+  二.面向对象程序设计
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/3.browser/1.browser.html" class="nav-link">
+  三.浏览器渲染机制
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/dom/1.event.html" class="nav-link">
+  四.DOM事件及设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/es6/1.let.html" class="nav-link">
+  五.ES6+核心源码分析
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/websocket/1.index.html" class="nav-link">
+  六.websocket
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="高级知识" class="dropdown-title"><span class="title">高级知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="高级知识" class="mobile-dropdown-title"><span class="title">高级知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web-node/senior/http/1.http.html" class="nav-link">
+  一.计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/network/1.network.html" class="nav-link">
+  二.network
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/cookie/1.cookie.html" class="nav-link">
+  三.cookie &amp;&amp; session
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/security/1.xss.html" class="nav-link">
+  四.安全防范
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/serverless/1.index.html" class="nav-link">
+  五.Serverless
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/graphql/1.index.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  六.GraphQL
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="阅读书籍" class="dropdown-title"><span class="title">阅读书籍</span> <span class="arrow down"></span></button> <button type="button" aria-label="阅读书籍" class="mobile-dropdown-title"><span class="title">阅读书籍</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web-node/read/book1/1.preparation.html" class="nav-link">
+  一.Node.js 开发指南
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/read/book2/1.preparation.html" class="nav-link">
+  二.了不起的 Node.js
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/read/book3/1.preparation.html" class="nav-link">
+  三.Node.js 实战
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/read/book4/1.preparation.html" class="nav-link">
+  四.深入浅出 Node.js
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础知识" class="dropdown-title"><span class="title">基础知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础知识" class="mobile-dropdown-title"><span class="title">基础知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web-node/base/stack/1.node.html" class="nav-link">
+  一.node
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/oop/1.objectOriented.html" class="nav-link">
+  二.面向对象程序设计
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/3.browser/1.browser.html" class="nav-link">
+  三.浏览器渲染机制
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/dom/1.event.html" class="nav-link">
+  四.DOM事件及设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/es6/1.let.html" class="nav-link">
+  五.ES6+核心源码分析
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/base/websocket/1.index.html" class="nav-link">
+  六.websocket
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="高级知识" class="dropdown-title"><span class="title">高级知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="高级知识" class="mobile-dropdown-title"><span class="title">高级知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web-node/senior/http/1.http.html" class="nav-link">
+  一.计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/network/1.network.html" class="nav-link">
+  二.network
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/cookie/1.cookie.html" class="nav-link">
+  三.cookie &amp;&amp; session
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/security/1.xss.html" class="nav-link">
+  四.安全防范
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/serverless/1.index.html" class="nav-link">
+  五.Serverless
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/senior/graphql/1.index.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  六.GraphQL
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="阅读书籍" class="dropdown-title"><span class="title">阅读书籍</span> <span class="arrow down"></span></button> <button type="button" aria-label="阅读书籍" class="mobile-dropdown-title"><span class="title">阅读书籍</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web-node/read/book1/1.preparation.html" class="nav-link">
+  一.Node.js 开发指南
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/read/book2/1.preparation.html" class="nav-link">
+  二.了不起的 Node.js
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/read/book3/1.preparation.html" class="nav-link">
+  三.Node.js 实战
+</a></li><li class="dropdown-item"><!----> <a href="/web-node/read/book4/1.preparation.html" class="nav-link">
+  四.深入浅出 Node.js
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/web-node/senior/graphql/1.index.html" aria-current="page" class="active sidebar-link">GraphQL</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/web-node/senior/graphql/1.index.html#_1-什么是-graphql" class="sidebar-link">1.什么是 GraphQL</a></li><li class="sidebar-sub-header"><a href="/web-node/senior/graphql/1.index.html#_2-创建后端项目" class="sidebar-link">2.创建后端项目</a></li><li class="sidebar-sub-header"><a href="/web-node/senior/graphql/1.index.html#_3-实现商品分类接口" class="sidebar-link">3.实现商品分类接口</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/web-node/senior/graphql/1.index.html#_3-1-server-js" class="sidebar-link">3.1 server.js</a></li><li class="sidebar-sub-header"><a href="/web-node/senior/graphql/1.index.html#_3-2-schema-js" class="sidebar-link">3.2 schema.js</a></li><li class="sidebar-sub-header"><a href="/web-node/senior/graphql/1.index.html#_3-3-graphiql" class="sidebar-link">3.3 GraphiQL</a></li></ul></li><li class="sidebar-sub-header"><a href="/web-node/senior/graphql/1.index.html#_4-实现商品接口" class="sidebar-link">4. 实现商品接口</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/web-node/senior/graphql/1.index.html#_4-1-schema-js" class="sidebar-link">4.1 schema.js</a></li></ul></li><li class="sidebar-sub-header"><a href="/web-node/senior/graphql/1.index.html#_5-添加商品" class="sidebar-link">5. 添加商品</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/web-node/senior/graphql/1.index.html#_5-1-schema-js" class="sidebar-link">5.1 schema.js</a></li></ul></li><li class="sidebar-sub-header"><a href="/web-node/senior/graphql/1.index.html#_6-使用mongodb数据库" class="sidebar-link">6. 使用mongodb数据库</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/web-node/senior/graphql/1.index.html#_6-1-model-js" class="sidebar-link">6.1 model.js</a></li><li class="sidebar-sub-header"><a href="/web-node/senior/graphql/1.index.html#_6-2-schema-js" class="sidebar-link">6.2 schema.js</a></li><li class="sidebar-sub-header"><a href="/web-node/senior/graphql/1.index.html#_6-3-操作步骤" class="sidebar-link">6.3 操作步骤</a></li></ul></li></ul></li><li><a href="/web-node/senior/graphql/i18n.html" class="sidebar-link">项目实战</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="graphql"><a href="#graphql" class="header-anchor">#</a> GraphQL</h1> <h2 id="_1-什么是-graphql"><a href="#_1-什么是-graphql" class="header-anchor">#</a> 1.什么是 GraphQL</h2> <ul><li><code>GraphQL</code>既是一种用于 api 的查询语言也是一个满足你数据查询的运行时</li> <li><code>GraphQL</code>对你的 api 中的数据提供了一套用于理解的完整描述，使得客户端能够准确地获得它需要的数据，而且没有任何冗余</li> <li>请求你所要的数据不多不少</li> <li>只用一个请求获取多个资源</li></ul> <h2 id="_2-创建后端项目"><a href="#_2-创建后端项目" class="header-anchor">#</a> 2.创建后端项目</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">mkdir</span> server
+<span class="token builtin class-name">cd</span> server
+cnpm init -y
+cnpm i express graphql express-graphql mongoose cors --save
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="_3-实现商品分类接口"><a href="#_3-实现商品分类接口" class="header-anchor">#</a> 3.实现商品分类接口</h2> <h3 id="_3-1-server-js"><a href="#_3-1-server-js" class="header-anchor">#</a> 3.1 server.js</h3> <p>server.js</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;express&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> graphqlHTTP <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;express-graphql&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> schema <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./schema&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> cors <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;cors&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
+  <span class="token function">cors</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    origin<span class="token operator">:</span> <span class="token string">&quot;http://localhost:3000&quot;</span><span class="token punctuation">,</span>
+    methods<span class="token operator">:</span> <span class="token string">&quot;GET,PUT.POST,OPTIONS&quot;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
+  <span class="token string">&quot;/graphql&quot;</span><span class="token punctuation">,</span>
+  <span class="token function">graphqlHTTP</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    schema<span class="token punctuation">,</span>
+    graphiql<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">4000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  consle<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;server started on 4000&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><h3 id="_3-2-schema-js"><a href="#_3-2-schema-js" class="header-anchor">#</a> 3.2 schema.js</h3> <p>定义用户自定义类型,类型的每个字段都必须是已定义的且最终都是 GraphQL 中定义的类型。
+定义根类型,每种根类型中包含了准备暴露给服务调用方的用户自定义类型
+定义 Schema,每一个 Schema 中允许出现三种根类型：query，mutation，subscription，其中至少要有 query
+schema.js</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> graphql <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'graphql'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> GraphQLObjectType<span class="token punctuation">,</span>
+    GraphQLString<span class="token punctuation">,</span>
+    GraphQLInt<span class="token punctuation">,</span>
+    GraphQLSchema<span class="token punctuation">,</span>
+    GraphQLList<span class="token punctuation">,</span>
+    GraphQLNonNull
+<span class="token punctuation">}</span> <span class="token operator">=</span> graphql<span class="token punctuation">;</span>
+<span class="token keyword">const</span> categories <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'图书'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'2'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'数码'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'3'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'食品'</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+
+<span class="token keyword">const</span> Category <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLObjectType</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'Category'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">fields</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>
+        <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> GraphQLString <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> GraphQLString <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> RootQuery <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLObjectType</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'RootQuery'</span><span class="token punctuation">,</span>
+    fields<span class="token operator">:</span> <span class="token punctuation">{</span>
+        getCategory<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> Category<span class="token punctuation">,</span>
+            args<span class="token operator">:</span> <span class="token punctuation">{</span>
+                id<span class="token operator">:</span> <span class="token punctuation">{</span>
+                    type<span class="token operator">:</span> GraphQLString
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> categories<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> item<span class="token punctuation">.</span>id <span class="token operator">===</span> args<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLSchema</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    query<span class="token operator">:</span> RootQuery
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br></div></div><h3 id="_3-3-graphiql"><a href="#_3-3-graphiql" class="header-anchor">#</a> 3.3 GraphiQL</h3> <p>GraphiQLis an in-browser tool for writing, validating, and testing GraphQL queries.
+浏览器访问</p> <p>每次调用 GraphQL 服务,需要明确指定调用 Schema 中的哪个根类型(默认是 query)</p> <p>然后指定这个根类型下的哪几个字段（每个字段对应一个用户自定义类型），然后指定这些字段中的那些子字段的哪几个。一直到所有的字段都没有子字段为止
+Schema 明确了服务端有哪些字段(用户自定义类型)可以用，每个字段的类型和子字段
+每次查询时，服务器就会根据 Schema 验证并执行查询</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code>     <span class="token punctuation">{</span>
+       field(arg<span class="token operator">:</span> <span class="token string">&quot;value&quot;</span>) <span class="token punctuation">{</span>
+         subField
+       <span class="token punctuation">}</span>
+     <span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><div class="language-json line-numbers-mode"><pre class="language-json"><code>query<span class="token punctuation">{</span>
+  getCategory(id<span class="token operator">:</span> <span class="token string">&quot;1&quot;</span>) <span class="token punctuation">{</span>
+    id
+    name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>getCategory</p> <p>getCategories</p> <h2 id="_4-实现商品接口"><a href="#_4-实现商品接口" class="header-anchor">#</a> 4. 实现商品接口</h2> <h3 id="_4-1-schema-js"><a href="#_4-1-schema-js" class="header-anchor">#</a> 4.1 schema.js</h3> <p>schema.js</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> graphql <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'graphql'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> GraphQLObjectType<span class="token punctuation">,</span>
+    GraphQLString<span class="token punctuation">,</span>
+    GraphQLSchema<span class="token punctuation">,</span>
+    GraphQLList<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token operator">=</span> graphql<span class="token punctuation">;</span>
+<span class="token keyword">const</span> categories <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'图书'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'2'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'数码'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'3'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'食品'</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+<span class="token operator">+</span><span class="token keyword">const</span> products <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token operator">+</span>    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'红楼梦'</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'1'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'2'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'西游记'</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'1'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'3'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'水浒传'</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'1'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'4'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'三国演义'</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'1'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'2'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'iPhone'</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'2'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'3'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'3'</span> <span class="token punctuation">}</span>
+<span class="token operator">+</span><span class="token punctuation">]</span>
+<span class="token comment">//定义用户自定义类型</span>
+<span class="token comment">//类型的每个字段都必须是已定义的且最终都是 GraphQL 中定义的类型。</span>
+<span class="token keyword">const</span> Category <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLObjectType</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'Category'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">fields</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>
+        <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> GraphQLString <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> GraphQLString <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>            products<span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>                type<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLList</span><span class="token punctuation">(</span>Product<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>                <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>                    <span class="token keyword">return</span> products<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> item<span class="token punctuation">.</span>category <span class="token operator">===</span> parent<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">+</span>                <span class="token punctuation">}</span>
+<span class="token operator">+</span>            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token keyword">const</span> Product <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLObjectType</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<span class="token operator">+</span>    name<span class="token operator">:</span> <span class="token string">'Product'</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>    <span class="token function-variable function">fields</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>
+<span class="token operator">+</span>        <span class="token punctuation">{</span>
+<span class="token operator">+</span>            id<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> GraphQLString <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>            name<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> GraphQLString <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>            category<span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>                type<span class="token operator">:</span> Category<span class="token punctuation">,</span>
+<span class="token operator">+</span>                <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>                    <span class="token keyword">return</span> categories<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> item<span class="token punctuation">.</span>id <span class="token operator">===</span> parent<span class="token punctuation">.</span>category<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">+</span>                <span class="token punctuation">}</span>
+<span class="token operator">+</span>            <span class="token punctuation">}</span>
+<span class="token operator">+</span>        <span class="token punctuation">}</span>
+<span class="token operator">+</span>    <span class="token punctuation">)</span>
+<span class="token operator">+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> RootQuery <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLObjectType</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'RootQuery'</span><span class="token punctuation">,</span>
+    fields<span class="token operator">:</span> <span class="token punctuation">{</span>
+        getCategory<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> Category<span class="token punctuation">,</span>
+            args<span class="token operator">:</span> <span class="token punctuation">{</span>
+                id<span class="token operator">:</span> <span class="token punctuation">{</span>
+                    type<span class="token operator">:</span> GraphQLString
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> categories<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> item<span class="token punctuation">.</span>id <span class="token operator">===</span> args<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        getCategories<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLList</span><span class="token punctuation">(</span>Category<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            args<span class="token operator">:</span> <span class="token punctuation">{</span>
+
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> categories<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>        getProduct<span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>            type<span class="token operator">:</span> Product<span class="token punctuation">,</span>
+<span class="token operator">+</span>            args<span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>                id<span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>                    type<span class="token operator">:</span> GraphQLString
+<span class="token operator">+</span>                <span class="token punctuation">}</span>
+<span class="token operator">+</span>            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>                <span class="token keyword">return</span> products<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> item<span class="token punctuation">.</span>id <span class="token operator">===</span> args<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">+</span>            <span class="token punctuation">}</span>
+<span class="token operator">+</span>        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>        getProducts<span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>            type<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLList</span><span class="token punctuation">(</span>Product<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>            args<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>                <span class="token keyword">return</span> categories<span class="token punctuation">;</span>
+<span class="token operator">+</span>            <span class="token punctuation">}</span>
+<span class="token operator">+</span>        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//定义 Schema,每一个 Schema 中允许出现三种根类型：query，mutation，subscription，其中至少要有 query</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLSchema</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    query<span class="token operator">:</span> RootQuery
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br></div></div><h2 id="_5-添加商品"><a href="#_5-添加商品" class="header-anchor">#</a> 5. 添加商品</h2> <h3 id="_5-1-schema-js"><a href="#_5-1-schema-js" class="header-anchor">#</a> 5.1 schema.js</h3> <p>schema.js</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> graphql <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'graphql'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span>
+    GraphQLObjectType<span class="token punctuation">,</span>
+    GraphQLString<span class="token punctuation">,</span>
+    GraphQLSchema<span class="token punctuation">,</span>
+    GraphQLList<span class="token punctuation">,</span>
+    GraphQLNonNull
+<span class="token punctuation">}</span> <span class="token operator">=</span> graphql<span class="token punctuation">;</span>
+<span class="token keyword">const</span> categories <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'图书'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'2'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'数码'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'3'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'食品'</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+<span class="token operator">+</span><span class="token keyword">const</span> products <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token operator">+</span>    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'红楼梦'</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'1'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'2'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'西游记'</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'1'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'3'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'水浒传'</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'1'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'4'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'三国演义'</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'1'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'2'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'iPhone'</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'2'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'3'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'3'</span> <span class="token punctuation">}</span>
+<span class="token operator">+</span><span class="token punctuation">]</span>
+<span class="token comment">//定义用户自定义类型</span>
+<span class="token comment">//类型的每个字段都必须是已定义的且最终都是 GraphQL 中定义的类型。</span>
+<span class="token keyword">const</span> Category <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLObjectType</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'Category'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">fields</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token operator">+</span>
+        <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> GraphQLString <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> GraphQLString <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            products<span class="token operator">:</span> <span class="token punctuation">{</span>
+                type<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLList</span><span class="token punctuation">(</span>Product<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> products<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> item<span class="token punctuation">.</span>category <span class="token operator">===</span> parent<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token keyword">const</span> Product <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLObjectType</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<span class="token operator">+</span>    name<span class="token operator">:</span> <span class="token string">'Product'</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>    <span class="token function-variable function">fields</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>
+<span class="token operator">+</span>        <span class="token punctuation">{</span>
+<span class="token operator">+</span>            id<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> GraphQLString <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>            name<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> GraphQLString <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>            category<span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>                type<span class="token operator">:</span> Category<span class="token punctuation">,</span>
+<span class="token operator">+</span>                <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>                    <span class="token keyword">return</span> categories<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> item<span class="token punctuation">.</span>id <span class="token operator">===</span> parent<span class="token punctuation">.</span>category<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">+</span>                <span class="token punctuation">}</span>
+<span class="token operator">+</span>            <span class="token punctuation">}</span>
+<span class="token operator">+</span>        <span class="token punctuation">}</span>
+<span class="token operator">+</span>    <span class="token punctuation">)</span>
+<span class="token operator">+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> RootQuery <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLObjectType</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'RootQuery'</span><span class="token punctuation">,</span>
+    fields<span class="token operator">:</span> <span class="token punctuation">{</span>
+        getCategory<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> Category<span class="token punctuation">,</span>
+            args<span class="token operator">:</span> <span class="token punctuation">{</span>
+                id<span class="token operator">:</span> <span class="token punctuation">{</span>
+                    type<span class="token operator">:</span> GraphQLString
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> categories<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> item<span class="token punctuation">.</span>id <span class="token operator">===</span> args<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        getCategories<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLList</span><span class="token punctuation">(</span>Category<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            args<span class="token operator">:</span> <span class="token punctuation">{</span>
+
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> categories<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        getProduct<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> Product<span class="token punctuation">,</span>
+            args<span class="token operator">:</span> <span class="token punctuation">{</span>
+                id<span class="token operator">:</span> <span class="token punctuation">{</span>
+                    type<span class="token operator">:</span> GraphQLString
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> products<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> item<span class="token punctuation">.</span>id <span class="token operator">===</span> args<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        getProducts<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLList</span><span class="token punctuation">(</span>Product<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            args<span class="token operator">:</span> <span class="token punctuation">{</span>
+
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> categories<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token keyword">const</span> RootMutation <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLObjectType</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<span class="token operator">+</span>    name<span class="token operator">:</span> <span class="token string">'RootMutation'</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>    fields<span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>        addCategory<span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>            type<span class="token operator">:</span> Category<span class="token punctuation">,</span>
+<span class="token operator">+</span>            args<span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>                name<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLNonNull</span><span class="token punctuation">(</span>GraphQLString<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+<span class="token operator">+</span>            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>                args<span class="token punctuation">.</span>id <span class="token operator">=</span> categories<span class="token punctuation">.</span>length <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token string">''</span><span class="token punctuation">;</span>
+<span class="token operator">+</span>                categories<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">+</span>                <span class="token keyword">return</span> args<span class="token punctuation">;</span>
+<span class="token operator">+</span>            <span class="token punctuation">}</span>
+<span class="token operator">+</span>        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>        addProduct<span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>            type<span class="token operator">:</span> Product<span class="token punctuation">,</span>
+<span class="token operator">+</span>            args<span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>                name<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLNonNull</span><span class="token punctuation">(</span>GraphQLString<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>                category<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLNonNull</span><span class="token punctuation">(</span>GraphQLString<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+<span class="token operator">+</span>            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>                args<span class="token punctuation">.</span>id <span class="token operator">=</span> products<span class="token punctuation">.</span>length <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token string">''</span><span class="token punctuation">;</span>
+<span class="token operator">+</span>                products<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">+</span>                <span class="token keyword">return</span> args<span class="token punctuation">;</span>
+<span class="token operator">+</span>            <span class="token punctuation">}</span>
+<span class="token operator">+</span>        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//定义 Schema,每一个 Schema 中允许出现三种根类型：query，mutation，subscription，其中至少要有 query</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLSchema</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    query<span class="token operator">:</span> RootQuery<span class="token punctuation">,</span>
+<span class="token operator">+</span>    mutation<span class="token operator">:</span> RootMutation
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br></div></div><p>addProduct</p> <h2 id="_6-使用mongodb数据库"><a href="#_6-使用mongodb数据库" class="header-anchor">#</a> 6. 使用mongodb数据库</h2> <h3 id="_6-1-model-js"><a href="#_6-1-model-js" class="header-anchor">#</a> 6.1 model.js</h3> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> mongoose <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mongoose'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> ObjectId <span class="token operator">=</span> mongoose<span class="token punctuation">.</span>Schema<span class="token punctuation">.</span>Types<span class="token punctuation">.</span>ObjectId<span class="token punctuation">;</span>
+<span class="token keyword">const</span> Schema <span class="token operator">=</span> mongoose<span class="token punctuation">.</span>Schema<span class="token punctuation">;</span>
+<span class="token keyword">const</span> conn <span class="token operator">=</span> mongoose<span class="token punctuation">.</span><span class="token function">createConnection</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">mongodb://localhost/graphql</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    useNewUrlParser<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> useUnifiedTopology<span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+conn<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'open'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'数据库连接成功'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+conn<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'数据库连接失败'</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> CategorySchema <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Schema</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    name<span class="token operator">:</span> String
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> CategoryModel <span class="token operator">=</span> conn<span class="token punctuation">.</span><span class="token function">model</span><span class="token punctuation">(</span><span class="token string">'Category'</span><span class="token punctuation">,</span> CategorySchema<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> ProductSchema <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Schema</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    name<span class="token operator">:</span> String<span class="token punctuation">,</span>
+    category<span class="token operator">:</span> <span class="token punctuation">{</span>
+        type<span class="token operator">:</span> ObjectId<span class="token punctuation">,</span>
+        ref<span class="token operator">:</span> <span class="token string">'Category'</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> ProductModel <span class="token operator">=</span> conn<span class="token punctuation">.</span><span class="token function">model</span><span class="token punctuation">(</span><span class="token string">'Product'</span><span class="token punctuation">,</span> ProductSchema<span class="token punctuation">)</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    CategoryModel<span class="token punctuation">,</span>
+    ProductModel
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h3 id="_6-2-schema-js"><a href="#_6-2-schema-js" class="header-anchor">#</a> 6.2 schema.js</h3> <p>schema.js</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> graphql <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'graphql'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token keyword">const</span> <span class="token punctuation">{</span> CategoryModel<span class="token punctuation">,</span> ProductModel <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./model'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span>
+    GraphQLObjectType<span class="token punctuation">,</span>
+    GraphQLString<span class="token punctuation">,</span>
+    GraphQLSchema<span class="token punctuation">,</span>
+    GraphQLList<span class="token punctuation">,</span>
+    GraphQLNonNull
+<span class="token punctuation">}</span> <span class="token operator">=</span> graphql<span class="token punctuation">;</span>
+<span class="token keyword">const</span> categories <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'图书'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'2'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'数码'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'3'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'食品'</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+<span class="token keyword">const</span> products <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'红楼梦'</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'1'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'2'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'西游记'</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'1'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'3'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'水浒传'</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'1'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'4'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'三国演义'</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'1'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'2'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'iPhone'</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'2'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'3'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">'3'</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+<span class="token comment">//定义用户自定义类型</span>
+<span class="token comment">//类型的每个字段都必须是已定义的且最终都是 GraphQL 中定义的类型。</span>
+<span class="token keyword">const</span> Category <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLObjectType</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'Category'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">fields</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>
+        <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> GraphQLString <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> GraphQLString <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            products<span class="token operator">:</span> <span class="token punctuation">{</span>
+                type<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLList</span><span class="token punctuation">(</span>Product<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment">//return products.filter(item =&gt; item.category === parent.id);</span>
+<span class="token operator">+</span>                    <span class="token keyword">return</span> ProductModel<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span> category<span class="token operator">:</span> parent<span class="token punctuation">.</span>id <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> Product <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLObjectType</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'Product'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">fields</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>
+        <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> GraphQLString <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> GraphQLString <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            category<span class="token operator">:</span> <span class="token punctuation">{</span>
+                type<span class="token operator">:</span> Category<span class="token punctuation">,</span>
+                <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment">//return categories.find(item =&gt; item.id === parent.category);</span>
+<span class="token operator">+</span>                    <span class="token keyword">return</span> CategoryModel<span class="token punctuation">.</span><span class="token function">findById</span><span class="token punctuation">(</span>parent<span class="token punctuation">.</span>category<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> RootQuery <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLObjectType</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'RootQuery'</span><span class="token punctuation">,</span>
+    fields<span class="token operator">:</span> <span class="token punctuation">{</span>
+        getCategory<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> Category<span class="token punctuation">,</span>
+            args<span class="token operator">:</span> <span class="token punctuation">{</span>
+                id<span class="token operator">:</span> <span class="token punctuation">{</span>
+                    type<span class="token operator">:</span> GraphQLString
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">//return categories.find(item =&gt; item.id === args.id);</span>
+<span class="token operator">+</span>                <span class="token keyword">return</span> CategoryModel<span class="token punctuation">.</span><span class="token function">findById</span><span class="token punctuation">(</span>args<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        getCategories<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLList</span><span class="token punctuation">(</span>Category<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            args<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">//return categories;</span>
+<span class="token operator">+</span>                <span class="token keyword">return</span> CategoryModel<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        getProduct<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> Product<span class="token punctuation">,</span>
+            args<span class="token operator">:</span> <span class="token punctuation">{</span>
+                id<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> GraphQLString <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">//return products.find(item =&gt; item.id === args.id);</span>
+<span class="token operator">+</span>                <span class="token keyword">return</span> ProductModel<span class="token punctuation">.</span><span class="token function">findById</span><span class="token punctuation">(</span>args<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        getProducts<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLList</span><span class="token punctuation">(</span>Product<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            args<span class="token operator">:</span> <span class="token punctuation">{</span>
+
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">//return categories;</span>
+<span class="token operator">+</span>                <span class="token keyword">return</span> ProductModel<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> RootMutation <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLObjectType</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'RootMutation'</span><span class="token punctuation">,</span>
+    fields<span class="token operator">:</span> <span class="token punctuation">{</span>
+        addCategory<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> Category<span class="token punctuation">,</span>
+            args<span class="token operator">:</span> <span class="token punctuation">{</span>
+                name<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLNonNull</span><span class="token punctuation">(</span>GraphQLString<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">/*
+                  args.id = categories.length + 1 + '';
+                  categories.push(args);
+                  return args;
+                */</span>
+<span class="token operator">+</span>                <span class="token keyword">return</span> CategoryModel<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        addProduct<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> Product<span class="token punctuation">,</span>
+            args<span class="token operator">:</span> <span class="token punctuation">{</span>
+                name<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLNonNull</span><span class="token punctuation">(</span>GraphQLString<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                category<span class="token operator">:</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLNonNull</span><span class="token punctuation">(</span>GraphQLString<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">/* args.id = products.length + 1 + '';
+                products.push(args);
+                return args; */</span>
+<span class="token operator">+</span>                <span class="token keyword">return</span> ProductModel<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//定义 Schema,每一个 Schema 中允许出现三种根类型：query，mutation，subscription，其中至少要有 query</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GraphQLSchema</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    query<span class="token operator">:</span> RootQuery<span class="token punctuation">,</span>
+    mutation<span class="token operator">:</span> RootMutation
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br></div></div><h3 id="_6-3-操作步骤"><a href="#_6-3-操作步骤" class="header-anchor">#</a> 6.3 操作步骤</h3> <div class="language-json line-numbers-mode"><pre class="language-json"><code>mutation<span class="token punctuation">{</span>
+  addCategory(name<span class="token operator">:</span><span class="token string">&quot;书籍&quot;</span>)<span class="token punctuation">{</span>
+    id<span class="token punctuation">,</span>
+    name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;addCategory&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb188fe2d74a3543392ab&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;书籍&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+mutation<span class="token punctuation">{</span>
+  addCategory(name<span class="token operator">:</span><span class="token string">&quot;数码产品&quot;</span>)<span class="token punctuation">{</span>
+    id<span class="token punctuation">,</span>
+    name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;addCategory&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb1bdfe2d74a3543392ad&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;数码产品&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+mutation<span class="token punctuation">{</span>
+  addCategory(name<span class="token operator">:</span><span class="token string">&quot;食品&quot;</span>)<span class="token punctuation">{</span>
+    id<span class="token punctuation">,</span>
+    name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;addCategory&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb1c5fe2d74a3543392ae&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;食品&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token punctuation">{</span>
+  getCategories <span class="token punctuation">{</span>
+    id
+    name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;getCategories&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb188fe2d74a3543392ab&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;书籍&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb1bdfe2d74a3543392ad&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;数码产品&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb1c5fe2d74a3543392ae&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;食品&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+mutation <span class="token punctuation">{</span>
+  addProduct(name<span class="token operator">:</span> <span class="token string">&quot;西游记&quot;</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">&quot;5dcfb188fe2d74a3543392ab&quot;</span>) <span class="token punctuation">{</span>
+    id
+    name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;addProduct&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb341b2f03ea4906dd913&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;西游记&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+mutation <span class="token punctuation">{</span>
+  addProduct(name<span class="token operator">:</span> <span class="token string">&quot;红楼梦&quot;</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">&quot;5dcfb188fe2d74a3543392ab&quot;</span>) <span class="token punctuation">{</span>
+    id
+    name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;addProduct&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb354b2f03ea4906dd914&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;红楼梦&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+mutation <span class="token punctuation">{</span>
+  addProduct(name<span class="token operator">:</span> <span class="token string">&quot;水浒传&quot;</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">&quot;5dcfb188fe2d74a3543392ab&quot;</span>) <span class="token punctuation">{</span>
+    id
+    name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;addProduct&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb36cb2f03ea4906dd915&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;水浒传&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+mutation <span class="token punctuation">{</span>
+  addProduct(name<span class="token operator">:</span> <span class="token string">&quot;三国演义&quot;</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">&quot;5dcfb188fe2d74a3543392ab&quot;</span>) <span class="token punctuation">{</span>
+    id
+    name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;addProduct&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb37bb2f03ea4906dd916&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;三国演义&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+mutation <span class="token punctuation">{</span>
+  addProduct(name<span class="token operator">:</span> <span class="token string">&quot;iPhone&quot;</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">&quot;5dcfb1bdfe2d74a3543392ad&quot;</span>) <span class="token punctuation">{</span>
+    id
+    name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;addProduct&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb393b2f03ea4906dd917&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;iPhone&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+mutation <span class="token punctuation">{</span>
+  addProduct(name<span class="token operator">:</span> <span class="token string">&quot;面包&quot;</span><span class="token punctuation">,</span> category<span class="token operator">:</span> <span class="token string">&quot;5dcfb1c5fe2d74a3543392ae&quot;</span>) <span class="token punctuation">{</span>
+    id
+    name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;addProduct&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb3a7b2f03ea4906dd918&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;面包&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token punctuation">{</span>
+  getProducts <span class="token punctuation">{</span>
+    id
+    name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;getProducts&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb341b2f03ea4906dd913&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;西游记&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb354b2f03ea4906dd914&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;红楼梦&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb36cb2f03ea4906dd915&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;水浒传&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb37bb2f03ea4906dd916&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;三国演义&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb393b2f03ea4906dd917&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;iPhone&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5dcfb3a7b2f03ea4906dd918&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;面包&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br><span class="line-number">194</span><br><span class="line-number">195</span><br><span class="line-number">196</span><br><span class="line-number">197</span><br><span class="line-number">198</span><br><span class="line-number">199</span><br><span class="line-number">200</span><br><span class="line-number">201</span><br><span class="line-number">202</span><br><span class="line-number">203</span><br><span class="line-number">204</span><br><span class="line-number">205</span><br><span class="line-number">206</span><br><span class="line-number">207</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/9/5 下午11:08:21</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/web-node/senior/graphql/i18n.html">
+        项目实战
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/web-node/assets/js/app.d5d4222c.js" defer></script><script src="/web-node/assets/js/2.5f5e3275.js" defer></script><script src="/web-node/assets/js/71.70f0cd47.js" defer></script>
+  </body>
+</html>
