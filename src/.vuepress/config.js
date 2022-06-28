@@ -20,7 +20,7 @@ module.exports = {
       src: 'https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js'
     }],
     ['script', {
-      src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js'
+      src: 'https://cdn.jsdelivr.net/npm/vue/web-node/vue.min.js'
     }],
     ['script', {
       src: 'https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js'
@@ -88,7 +88,7 @@ module.exports = {
     ],
   ],
   port: 3009,
-  dest: 'dist', // 指定 vuepress build 的输出目录
+  dest: 'web-node', // 指定 vuepress build 的输出目录
   serviceWorker: true, // pwa
 
   // 主题配置
