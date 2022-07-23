@@ -67,7 +67,7 @@ module.exports = {
         link: '/base/stack/1.node'
       },
       {
-        text: '二.面向对象程序设计',
+        text: '二.简单案例',
         link: '/base/oop/1.objectOriented'
       },
       {
