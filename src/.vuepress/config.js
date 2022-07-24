@@ -104,7 +104,7 @@ module.exports = {
       },
       {
         text: '四.安全防范',
-        link: '/senior/security/1.xss'
+        link: '/senior/security/1.index'
       },
       {
         text: '五.Serverless',
@@ -219,6 +219,7 @@ module.exports = {
         '1.cookie'
       ],
       '/senior/security/': [ //前端安全
+        '1.index',
         '1.xss',
         '2.csrf',
         '3.doos',
