@@ -1,21 +1,18 @@
 module.exports = {
-  // 基础配置
-  base: '/web-node/', // 部署站点的基础路径
+  base: '/web-node/', 
   description: 'Node相关知识点',
   locales: {
-    // 默认标题
     '/': {
       title: 'Node学习笔记',
       description: '星光不问赶路人,岁月不负有心人'
     }
   },
   markdown: {
-    lineNumbers: true // 代码块显示行号
+    lineNumbers: true
   },
   plugins: [
     '@vuepress/medium-zoom',
     'demo-block',
-    // you can use this plugin multiple times
     [
       'vuepress-plugin-container',
       {
@@ -31,8 +28,6 @@ module.exports = {
         after: '</div>',
       },
     ],
-
-    // this is how VuePress Default Theme use this plugin
     [
       'vuepress-plugin-container',
       {
@@ -45,97 +40,99 @@ module.exports = {
     ],
   ],
   port: 3009,
-  dest: 'web-node', // 指定 vuepress build 的输出目录
-  serviceWorker: true, // pwa
-
-  // 主题配置
+  dest: 'web-node',
+  serviceWorker: true,
   themeConfig: {
-    repo: 'https://github.com/zhoubichuan/web-node', // 源码地址
-    repoLabel: '查看源码', // (查看源码的)组件名称
-    docsBranch: 'master', // git 源仓库 仓库分支
+    repo: 'https://github.com/zhoubichuan/web-node',
+    repoLabel: '查看源码',
+    docsBranch: 'master',
     editLinks: true,
-    docsDir: 'src', // 假如文档不是放在仓库的根目录下
-    editLinks: true, // 启用编辑
+    docsDir: 'src', 
+    editLinks: true,
     editLinkText: '在github上编辑此页',
     sidebarDepth: 0,
-    lastUpdated: '上次更新', // 获取每个文件最后一次 git 提交的时间戳
+    lastUpdated: '上次更新',
     searchMaxSuggestoins: 10,
-    nav: [{
-      text: '基础知识',
-      items: [{
-        text: '一.node',
-        link: '/base/stack/1.node'
+    nav: [
+      {
+        text: '基础知识',
+        items: [
+          {
+            text: '一.node',
+            link: '/base/stack/1.node'
+          },
+          {
+            text: '二.简单案例',
+            link: '/base/oop/1.objectOriented'
+          },
+          {
+            text: '三.浏览器渲染机制',
+            link: '/base/3.browser/1.browser'
+          },
+          {
+            text: '四.DOM事件及设计模式',
+            link: '/base/dom/1.event'
+          },
+          {
+            text: '五.ES6+核心源码分析',
+            link: '/base/es6/1.let'
+          },
+          {
+            text: '六.websocket',
+            link: '/base/websocket/1.index'
+          }
+        ]
       },
       {
-        text: '二.简单案例',
-        link: '/base/oop/1.objectOriented'
+        text: '高级知识',
+        items: [
+          {
+            text: '一.计算机网络',
+            link: '/senior/http/1.http'
+          },
+          {
+            text: '二.network',
+            link: '/senior/network/1.network'
+          },
+          {
+            text: '三.cookie && session',
+            link: '/senior/cookie/1.cookie'
+          },
+          {
+            text: '四.安全防范',
+            link: '/senior/security/1.index'
+          },
+          {
+            text: '五.Serverless',
+            link: '/senior/serverless/1.index'
+          },
+          {
+            text: '六.GraphQL',
+            link: '/senior/graphql/1.index',
+          }
+        ]
       },
       {
-        text: '三.浏览器渲染机制',
-        link: '/base/3.browser/1.browser'
-      },
-      {
-        text: '四.DOM事件及设计模式',
-        link: '/base/dom/1.event'
-      },
-      {
-        text: '五.ES6+核心源码分析',
-        link: '/base/es6/1.let'
-      },
-      {
-        text: '六.websocket',
-        link: '/base/websocket/1.index'
+        text: '阅读书籍',
+        items: [
+          {
+            text: '一.Node.js 开发指南',
+            link: '/read/book1/1.preparation'
+          },
+          {
+            text: '二.了不起的 Node.js',
+            link: '/read/book2/1.preparation'
+          },
+          {
+            text: '三.Node.js 实战',
+            link: '/read/book3/1.preparation'
+          },
+          {
+            text: '四.深入浅出 Node.js',
+            link: '/read/book4/1.preparation'
+          }
+        ]
       }
-      ]
-    },
-    {
-      text: '高级知识',
-      items: [{
-        text: '一.计算机网络',
-        link: '/senior/http/1.http'
-      },
-      {
-        text: '二.network',
-        link: '/senior/network/1.network'
-      },
-      {
-        text: '三.cookie && session',
-        link: '/senior/cookie/1.cookie'
-      },
-      {
-        text: '四.安全防范',
-        link: '/senior/security/1.index'
-      },
-      {
-        text: '五.Serverless',
-        link: '/senior/serverless/1.index'
-      },
-      {
-        text: '六.GraphQL',
-        link: '/senior/graphql/1.index',
-      }
-      ]
-    },
-    {
-      text: '阅读书籍',
-      items: [{
-        text: '一.Node.js 开发指南',
-        link: '/read/book1/1.preparation'
-      },
-      {
-        text: '二.了不起的 Node.js',
-        link: '/read/book2/1.preparation'
-      },
-      {
-        text: '三.Node.js 实战',
-        link: '/read/book3/1.preparation'
-      },
-      {
-        text: '四.深入浅出 Node.js',
-        link: '/read/book4/1.preparation'
-      }
-      ]
-    }
     ],
     sidebar: {
       '/base/stack/': [
@@ -156,7 +153,7 @@ module.exports = {
         '15.process',
         '16.action'
       ],
-      '/base/oop/': [ //二.面向对象程序设计
+      '/base/oop/': [
         '1.objectOriented',
         '2.constructor',
         '3.prototype',
@@ -167,7 +164,7 @@ module.exports = {
         '8.jQuery',
         '9.lodash'
       ],
-      '/base/3.browser/': [ //三.同步异步编程及浏览器渲染机制
+      '/base/3.browser/': [
         '1.browser',
         '2.tree',
         '3.reflow',
@@ -178,10 +175,10 @@ module.exports = {
         '8.skeleton',
         '9.test'
       ],
-      '/base/dom/': [ //四.DOM事件及设计模式
+      '/base/dom/': [
         '1.event'
       ],
-      '/base/es6/': [ //五.ES6+核心知识和源码分析
+      '/base/es6/': [
         '1.let',
       ],
       '/base/websocket/': [
@@ -205,8 +202,8 @@ module.exports = {
         '7.checkBox',
         '8.EventLoop',
         '9.alert',
-        '10.serviceRender', //服务端渲染
-        '11.debounceAndThrottle', //防抖与节流
+        '10.serviceRender',
+        '11.debounceAndThrottle',
         '12.webpack'
       ],
       '/senior/network/': [
@@ -215,10 +212,10 @@ module.exports = {
       '/senior/serverless/': [
         '1.index'
       ],
-      '/senior/cookie/': [ //前端监控
+      '/senior/cookie/': [
         '1.cookie'
       ],
-      '/senior/security/': [ //前端安全
+      '/senior/security/': [
         '1.index',
         '1.xss',
         '2.csrf',
