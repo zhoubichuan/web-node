@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/web-node/', 
+  base: '/web-node/',
   description: 'Node相关知识点',
   locales: {
     '/': {
@@ -45,7 +45,7 @@ module.exports = {
     repoLabel: '查看源码',
     docsBranch: 'master',
     editLinks: true,
-    docsDir: 'src', 
+    docsDir: 'src',
     editLinks: true,
     editLinkText: '在github上编辑此页',
     sidebarDepth: 0,
@@ -56,7 +56,7 @@ module.exports = {
         text: '基础知识',
         items: [
           {
-            text: '一.node',
+            text: '一.node基础',
             link: '/base/stack/1.node'
           },
           {
@@ -89,11 +89,11 @@ module.exports = {
             link: '/senior/http/1.http'
           },
           {
-            text: '二.network',
+            text: '二.登陆相关',
             link: '/senior/network/1.network'
           },
           {
-            text: '三.cookie && session',
+            text: '三.后端监控',
             link: '/senior/cookie/1.cookie'
           },
           {
@@ -185,6 +185,7 @@ module.exports = {
         '3.tcp',
         '5.dns',
         '6.websocket',
+        '7.socket',
       ],
       '/senior/graphql/': [
         '1.index',
