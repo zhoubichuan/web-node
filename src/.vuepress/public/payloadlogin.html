@@ -37,7 +37,7 @@
             let password = $("#password").val()
             $.post("/api/login", { username, password }).then(res => {
                 if (res.code == 0) {
-                    location.href = "/comment.html"
+                    location.href = "/payloadcomment.html"
                 } else {
                     alert(res.error)
                 }

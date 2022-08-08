@@ -216,7 +216,10 @@ module.exports = {
       ],
       '/senior/security/': [
         '1.index',
-        '1.xss',
+        '1.repellerxss',
+        '2.storagexss',
+        '3.dombasexss',
+        '4.payloadxss',
         '2.csrf',
         '3.doos',
         '4.http'
