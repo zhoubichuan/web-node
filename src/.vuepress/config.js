@@ -72,7 +72,7 @@ module.exports = {
             link: '/base/dom/1.event'
           },
           {
-            text: '五.ES6+核心源码分析',
+            text: '五.服务端渲染',
             link: '/base/es6/1.let'
           },
           {
