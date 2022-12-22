@@ -57,23 +57,23 @@ module.exports = {
         items: [
           {
             text: '一.node基础',
-            link: '/base/stack/1.node'
+            link: '/base/node/1.index'
           },
           {
             text: '二.简单案例',
-            link: '/base/oop/1.objectOriented'
+            link: '/base/example/1.index'
           },
           {
-            text: '三.浏览器渲染机制',
+            text: '三.浏览器相关',
             link: '/base/3.browser/1.browser'
           },
           {
-            text: '四.DOM事件及设计模式',
+            text: '四.开发流程',
             link: '/base/dom/1.event'
           },
           {
             text: '五.服务端渲染',
-            link: '/base/es6/1.let'
+            link: '/base/ssr/1.let'
           },
           {
             text: '六.websocket',
@@ -133,8 +133,8 @@ module.exports = {
       }
     ],
     sidebar: {
-      '/base/stack/': [
-        '1.node',
+      '/base/node/': [
+        '1.index',
         '2.install',
         '3.repl',
         '4.core',
@@ -151,8 +151,8 @@ module.exports = {
         '15.process',
         '16.action'
       ],
-      '/base/oop/': [
-        '1.objectOriented',
+      '/base/example/': [
+        '1.index',
         '2.constructor',
         '3.prototype',
         '4.function',
@@ -176,7 +176,7 @@ module.exports = {
       '/base/dom/': [
         '1.event'
       ],
-      '/base/es6/': [
+      '/base/ssr/': [
         '1.let',
       ],
       '/base/websocket/': [
