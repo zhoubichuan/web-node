@@ -1,0 +1,3 @@
+[submodule "common-node"]
+	path = common-node
+	url = https://gitee.com/zhoubichuan/common-node.git
