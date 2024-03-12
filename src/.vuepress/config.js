@@ -1,3 +1,4 @@
+const path = require("path");
 module.exports = {
   base: '/web-node/',
   description: 'Node相关知识点',
@@ -9,6 +10,9 @@ module.exports = {
   },
   markdown: {
     lineNumbers: true
+  },
+  alias: {
+    "common-node": path.resolve(__dirname, "../../common-node/"),
   },
   plugins: {
     'demo-container': true,
@@ -153,7 +157,7 @@ module.exports = {
       ],
       '/base/example/': [
         '1.index',
-        '2.constructor',
+        '2.student',
         '3.prototype',
         '4.function',
         '5.this',
