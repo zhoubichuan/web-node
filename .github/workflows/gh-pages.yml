@@ -22,8 +22,6 @@ jobs:
       - name: Update submodules
         run: |
           git submodule update --remote
-          git commit -am "Update submodules"
-          git push
       # 使用 node 16.5.0
       - name: Install Node.js
         uses: actions/setup-node@v1
