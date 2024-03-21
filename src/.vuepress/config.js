@@ -57,10 +57,10 @@ module.exports = {
     searchMaxSuggestoins: 10,
     nav: [
       {
-        text: '基础知识',
+        text: '初级知识',
         items: [
           {
-            text: '一.node基础',
+            text: '一.基础知识',
             link: '/base/node/1.index'
           },
           {

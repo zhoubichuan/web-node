@@ -3,7 +3,7 @@ lang: zh-CN
 home: true
 heroImage: ./home.png
 actionText: 先睹为快 →
-actionLink: /base/build/1.config
+actionLink: /base/node/1.index
 pageClass: page_index
 footer: Node相关知识
 meta:
@@ -17,15 +17,15 @@ meta:
     </div>
     <div class="features">
       <div class="feature">
-        <h2><a href="/web-node/base/engineering/1.start.html">Node基础知识</a></h2> 
-        <p>掌握Vue组件间的多种通信方式及数据同步 渲染函数及jsx高阶应用 vue-cli3、vuex、vue-router</p>
+        <h2><a href="/web-node/base/engineering/1.start.html">初级知识</a></h2> 
+        <p>掌握node的基础知识，通过一些简单案例了解node的具体用法</p>
       </div>
       <div class="feature">
-        <h2><a href="/web-node/base/project/1.configure.html">专项知识</a></h2> 
-        <p>掌握http&https、网络、cookie&session&token</p>
+        <h2><a href="/web-node/base/project/1.configure.html">高级知识</a></h2> 
+        <p>掌握http & https、网络、cookie & session & token</p>
       </div>
       <div class="feature">
-        <h2><a href="/web-node/base/engineering/1.start.html">Node相关书籍阅读</a></h2> 
+        <h2><a href="/web-node/base/engineering/1.start.html">书籍阅读</a></h2> 
         <p>《Node.js开发指南》、《了不起的Node.js》、《Node.js实战》、《深入浅出Node.js》</p>
       </div>
     </div>
