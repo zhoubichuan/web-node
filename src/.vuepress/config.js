@@ -77,7 +77,7 @@ module.exports = {
           },
           {
             text: '五.服务端渲染',
-            link: '/base/ssr/1.let'
+            link: '/base/ssr/1.index'
           },
           {
             text: '六.websocket',
@@ -181,7 +181,8 @@ module.exports = {
         '1.event'
       ],
       '/base/ssr/': [
-        '1.let',
+        '1.index',
+        '2.nunjucks'
       ],
       '/base/websocket/': [
         '1.index',
