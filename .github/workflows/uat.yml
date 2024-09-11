@@ -16,11 +16,11 @@ jobs:
       - name: Update submodules
         run: |
           git submodule update --remote
-      # 使用 node 16.5.0
+      # 使用 node 14.17.0
       - name: Install Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "16.5.0"
+          node-version: "14.17.0"
       # npm install
       - name: Install npm dependencies
         run: npm install
