@@ -5,6 +5,7 @@ export * from "./relationEntity";
 export * from "./dataEntity";
 export * from "./dtaInstance";
 export * from "./systemTag";
+export * from "./fs";
 function ip(params) {
   return request({
     url: "https://zhoubichuan.com/antdpro-express/api/rule7",
