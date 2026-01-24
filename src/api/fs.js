@@ -1,4 +1,8 @@
-const common = require('./sdk/file/index');
 export function file(fold) {
-  return common[fold.type](fold)
+  window.electron?.ipcRenderer?.sendMessage('filehandle', fold);
+  return new Promise((resolve) => {
+    window.electron?.ipcRenderer?.once('filehandle', (arg) => {
+      resolve(arg);
+    });
+  });
 }

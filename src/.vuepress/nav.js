@@ -15,7 +15,7 @@ const nav = [
         link: '/base/3.browser/1.browser'
       },
       {
-        text: '四.开发流程',
+        text: '四.文件相关',
         link: '/base/dom/1.event'
       },
       {

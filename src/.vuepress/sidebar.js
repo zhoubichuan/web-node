@@ -40,7 +40,9 @@ const sidebar = {
     '9.test'
   ],
   '/base/dom/': [
-    '1.event'
+    '1.event',
+    '2.dom2',
+    '3.event'
   ],
   '/base/ssr/': [
     '1.index',
