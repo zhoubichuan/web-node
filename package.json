@@ -9,6 +9,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vuepress dev src",
+    "scp:prod": "scp -r ./web-node/* root@zhoubichuan.com:/usr/src/zhoubichuan/prod/web-node/",
     "build": "vuepress build src",
     "publish": "gulp && cd lib && npm publish",
     "build:comps": "gulp",
